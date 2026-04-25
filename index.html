@@ -146,8 +146,16 @@
             const nombre = document.getElementById('nombre-cliente').value.trim();
             const direccion = document.getElementById('direccion-cliente').value.trim();
             const metodo = document.getElementById('metodo-pago').value;
+            
+            // Obtener Fecha y Hora actual
+            const ahora = new Date();
+            const fechaString = ahora.toLocaleDateString('es-AR');
+            const horaString = ahora.getHours().toString().padStart(2, '0') + ":" + ahora.getMinutes().toString().padStart(2, '0');
+
             let total = 0;
-            let resumen = "🥟 *NUEVO PEDIDO - LA CARBONADA* \n\n";
+            let resumen = "🥟 *NUEVO PEDIDO - LA CARBONADA* \n";
+            resumen += `📅 *FECHA:* ${fechaString}\n`;
+            resumen += `🕒 *HORA:* ${horaString}\n\n`;
             let hayProductos = false;
 
             if (!nombre || !direccion) {
