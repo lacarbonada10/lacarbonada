@@ -81,7 +81,6 @@
             <input type="text" id="direccion-cliente" class="input-datos" placeholder="Dirección de entrega">
             
             <select id="metodo-pago" class="select-pago">
-                <option value="Efectivo">Pagar en Efectivo</option>
                 <option value="Transferencia">Transferencia / Mercado Pago</option>
             </select>
 
@@ -96,16 +95,17 @@
     <script>
         // --- CONFIGURACIÓN ---
         const TELEFONO_WHATSAPP = "5493517485182"; 
-        const MI_ALIAS_MP = "LA.CARBONADA.MP"; // <--- CAMBIA TU ALIAS AQUÍ
+        const MI_ALIAS_MP = "LA.CARBONADA.MP";
 
         const empanadas = [
-            { id: 'matambre', nombre: 'Matambre a cuchillo', precio: 1400 },
-            { id: 'arabes', nombre: 'Árabes con limón', precio: 1300 },
-            { id: 'queso', nombre: 'Queso y Cebolla caramelizada', precio: 1200 },
-            { id: 'humita', nombre: 'Humita cremosa', precio: 1200 },
-            { id: 'caprese', nombre: 'Caprese (Muzzarella y Albahaca)', precio: 1250 },
-            { id: 'saladas', nombre: 'Carne Salada Clásica', precio: 1200 },
-            { id: 'dulces', nombre: 'Dulces', precio: 1100 }
+            { id: 'matambre', nombre: 'Matambre a cuchillo', precio: 1500 },
+            { id: 'pollo', nombre: 'Pollo', precio: 1500 },
+            { id: 'arabes', nombre: 'Árabes con limón', precio: 1500 },
+            { id: 'queso', nombre: 'Queso y Cebolla caramelizada', precio: 1500 },
+            { id: 'humita', nombre: 'Humita cremosa', precio: 1500 },
+            { id: 'caprese', nombre: 'Caprese (Muzzarella y Albahaca)', precio: 1500 },
+            { id: 'saladas', nombre: 'Carne Salada Clásica', precio: 1500 },
+            { id: 'dulces', nombre: 'Dulces', precio: 1500 }
         ];
 
         let carrito = {};
@@ -172,14 +172,10 @@
                 resumen += `\n💳 *PAGO:* ${metodo}`;
                 resumen += `\n\n───────────────\n`;
 
-                if(metodo === "Transferencia") {
-                    resumen += `✅ *DATOS DE PAGO:*\n`;
-                    resumen += `Alias: *${MI_ALIAS_MP}*\n`;
-                    resumen += `Monto: *$${total}*\n`;
-                    resumen += `_(Enviaré el comprobante por aquí)_`;
-                } else {
-                    resumen += `Pagaré en efectivo al recibir.`;
-                }
+                resumen += `✅ *DATOS DE PAGO:*\n`;
+                resumen += `Alias: *${MI_ALIAS_MP}*\n`;
+                resumen += `Monto: *$${total}*\n`;
+                resumen += `_(Enviaré el comprobante por aquí)_`;
 
                 const urlWhatsapp = `https://wa.me/${TELEFONO_WHATSAPP}?text=${encodeURIComponent(resumen)}`;
                 window.open(urlWhatsapp, '_blank');
