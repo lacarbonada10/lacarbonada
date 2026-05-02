@@ -109,7 +109,7 @@
             { id: 'arabes', nombre: 'Árabes con limón', precio: 1500 },
             { id: 'queso', nombre: 'Queso y Cebolla caramelizada', precio: 1500 },
             { id: 'humita', nombre: 'Humita cremosa', precio: 1500 },
-            { id: 'caprese', nombre: 'Caprese (Muzzarella y Albahaca)', precio: 1500 },
+            { id: 'caprese', nombre: 'JAMON Y QUESO ROQUEFORT', precio: 1500 },
             { id: 'saladas', nombre: 'Carne Salada Clásica', precio: 1500 },
             { id: 'dulces', nombre: 'Dulces', precio: 1500 }
         ];
@@ -146,7 +146,6 @@
             let subtotal = 0;
             empanadas.forEach(emp => subtotal += carrito[emp.id] * emp.precio);
             
-            // Si no hay productos, no sumamos el envío (opcional, aquí se suma siempre que haya al menos uno)
             let totalFinal = subtotal > 0 ? subtotal + COSTO_ENVIO : 0;
             document.getElementById('total-precio').innerText = totalFinal;
         }
